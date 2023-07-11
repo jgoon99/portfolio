@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="portfolioWeb">
+    <output-path>$PROJECT_DIR$/out/artifacts/portfolioWeb</output-path>
+    <root id="root">
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+    </root>
+  </artifact>
+</component>
