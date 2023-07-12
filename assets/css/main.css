@@ -4015,3 +4015,35 @@ div.time-line-cover div.exp-cover div.exp-area h4 span.location:before{
 }
 ul.bullet-point{font-size: 0.8em;}
 p.summary{font-size: 0.8em; margin-bottom: 0em;}
+
+div.tag-selector{
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0rem;
+  margin-bottom: 1rem;
+}
+div.tag-selector > button{margin-right: 0.5rem;}
+span.image i.portfolio-tag{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 800;
+  margin-top: -0.5em;
+  line-height: 1;
+  cursor: pointer;
+}
+span.image i.portfolio-title{
+  position: absolute;
+  position: bottom;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 0.3em;
+  cursor: pointer;
+  font-weight: 800;
+}
+span.image:hover > i.portfolio-title{color: #fff;}

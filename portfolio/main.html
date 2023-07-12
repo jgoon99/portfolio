@@ -9,8 +9,8 @@
   <title>Portfolio</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 </head>
 <body class="is-preload">
 
@@ -21,7 +21,7 @@
     <ul>
       <li><a href="../index.html">Home</a></li>
       <li><a href="../expertise.html">Expertise</a></li>
-      <li><a href="portfolio/main.html" class="active">Portfolio</a></li>
+      <li><a href="../portfolio/main.html" class="active">Portfolio</a></li>
     </ul>
   </nav>
 </header>
@@ -33,8 +33,22 @@
   <section id="main" class="wrapper">
     <div class="inner">
       <h1 class="major">Portfolio List</h1>
-      <h2>Under Construction</h2>
-
+      <h3>Total <span id="project-total">8</span> Projects</h3>
+      <div class="tag-selector">
+        <button class="portfolio-btn button small primary" tag="All" onclick="filterByCategory(this);">All</button>
+       </div>
+      <div class="box alt">
+        <div class="row gtr-uniform">
+          <!-- Portfolio Blocks -->
+          <div class="col-4 portfolio-container" tag="foodtech">
+            <span class="image fit">
+              <a href="../portfolio/small-data-based-restaurant-suggestion-service.html"><img src="../images/FoodTech.png" alt="" /></a>
+              <i class="portfolio-tag">#foodtech</i>
+              <i class="portfolio-title">Small Data Based Restaurant Suggestion Service</i>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -50,13 +64,46 @@
 </footer>
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../sassets/js/main.js"></script>
 
 </body>
+<script>
+  $(document).ready(function(){
+    n = $('div.portfolio-container').length;
+    $('#project-total').text(n);
+    btn = '<button class="portfolio-btn button small" onclick="filterByCategory(this);"></button>';
+    $('div.portfolio-container').each(function(){
+      bt = $(btn)
+      bt.attr('tag', $(this).attr('tag'))
+      bt.text('#' + $(this).attr('tag'))
+      $('div.tag-selector').append(bt);
+    })
+  })
+  function filterByCategory(me){
+    $('button.portfolio-btn').removeClass('primary');
+    $(me).addClass('primary');
+    tag = me.getAttribute('tag')
+    n = 0;
+    if (tag == 'All'){
+      $('div.portfolio-container').show();
+      n = $('div.portfolio-container').length;
+    } else {
+      $('div.portfolio-container').each(function(){
+        if (this.getAttribute('tag') == tag){
+          $(this).show();
+          n++
+        } else {
+          $(this).hide();
+        }
+      })
+    }
+    $('#project-total').text(n);
+  }
+</script>
 </html>
